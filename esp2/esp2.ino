@@ -1,8 +1,3 @@
-//This example code is in the Public Domain (or CC0 licensed, at your option.)
-//By Evandro Copercini - 2018
-//
-//This example creates a bridge between Serial and Classical Bluetooth (SPP)
-//and also demonstrate that SerialBT have the same functionalities of a normal Serial
 
 #include "BluetoothSerial.h"
 
@@ -11,8 +6,8 @@
 #endif
 
 BluetoothSerial SerialBT;
-// String esp1_mac = "E4:65:B8:1E:E0:A2";
-uint8_t address[6]  = {0xE4, 0x65, 0xB8, 0x1E, 0xE0, 0xA2};//Write Drone side MAC address in HEX
+String esp1_mac = "E4:65:B8:1E:E0:A2";
+uint8_t address[6]  = {0x08, 0xA6, 0xF7, 0xA1, 0x6F, 0x0A};//Write Drone side MAC address in HEX
 bool connect;
 
 void connected();
@@ -22,22 +17,7 @@ void setup() {
   Serial.begin(115200);
   SerialBT.begin("ESP32_2", true); 
   Serial.println("The device started, now you can pair it with bluetooth!");
-  // connect = SerialBT.connect(address);
   
-  // if(connect) {
-  //   Serial.println("Connected Succesfully!");
-  // }
-  // } else {
-  //   while(!SerialBT.connected(10000)) {
-  //     Serial.println("Failed to connect. Make sure remote device is available and in range, then restart app."); 
-  //   }
-  // }
-  // // disconnect() may take upto 10 secs max
-  // if (SerialBT.disconnect()) {
-  //   Serial.println("Disconnected Succesfully!");
-  // }
-  // // this would reconnect to the name(will use address, if resolved) or address used with connect(name/address).
-  // SerialBT.connect();
 }
 
 void loop() {
